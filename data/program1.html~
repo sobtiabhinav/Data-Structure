@@ -1,0 +1,83 @@
+<p>#include "iostream.h"</p>
+<p>
+#include <conio.h> <br/>
+void display(int a[20], int n)<br/>
+{<br/>
+	for(int i=0; i<n; i++)<br/>
+		cout<<a[i]<<"\t";<br/>
+}<br/>
+<br/>
+void main()<br/>
+{<br/>
+	int arr[20],i=0, n, opt, del, max, min;<br/>
+	cout<<"How many elements? ";<br/>
+	cin>>n;<br/>
+	cout<<"\nEnter " <<n<< " elements : ";<br/>
+	for (i=0; i<n; i++)<br/>
+		cin>>arr[i];<br/>
+	do<br/>
+	{<br/>
+	cout<<"\n\n **MAIN MENU**"<br/>
+	    <<"\n1. Read and write the elements of an array"<br/>
+	    <<"\n2. Passing elements of an array to a function"<br/>
+	    <<"\n3. Delete an element from an array"<br/>
+	    <<"\n4. Traverse the elements an array"<br/>
+	    <<"\n5. Highest and lowest elements in an array of an array"<br/>
+	    <<"\n6. Exit"<br/>
+	    <<"\nEnter the operation to perform :" ;<br/>
+	cin>>opt;<br/>
+	switch (opt)<br/>
+	{<br/>
+		case 1:<br/>
+		cout<<"\nThe entered array is :\n";<br/>
+		for (i=0; i<n; i++)<br/>
+		cout<<arr[i]<<"\t";<br/>
+		break;<br/>
+<br/>
+		case 2:<br/>
+		display(arr,n);<br/>
+		break;<br/>
+
+		case 3:<br/>
+		cout<<"\nEnter the element number to delete: ";<br/>
+		cin>>del;<br/>
+		for (i=del-1; i<=n; i++)<br/>
+		arr[i]= arr[i+1];<br/>
+		n=n-1;<br/>
+		cout<<"\nThe omitted array is :\n";<br/>
+		for (i=0; i<n; i++)<br/>
+		cout<<arr[i]<<"\t";<br/>
+		break;<br/>
+<br/>
+		case 4:<br/>
+		cout<<"\nThe entered array in reverse order is :\n";      <br/>
+		for (i=n-1; i>=0; i--)<br/>
+		cout<<arr[i]<<"\t";<br/>
+		break;<br/>
+<br/>
+		case 5:<br/>
+		max=arr[0];<br/>
+		min=arr[0];<br/>
+		for (i=0; i<n; i++)<br/>
+		{<br/>
+			if (arr[i]>max)<br/>
+			max=arr[i];<br/>
+			else if (arr[i]<min)<br/>
+			min=arr[i];<br/>
+		}<br/>
+		cout<<"\nHighest = "<<max<br/>
+		    <<"\nLowest = "<<min;<br/>
+		break;<br/>
+<br/>
+		case 6:<br/>
+		cout<<"\n Exiting Program !!";<br/>
+		break;<br/>
+<br/>
+		default:<br/>
+		cout<<" ERROR!! INVALID INPUT ";<br/>
+		break;<br/>
+	}<br/>
+	getch();<br/>
+	} while (opt!=6);<br/>
+}</p>
+

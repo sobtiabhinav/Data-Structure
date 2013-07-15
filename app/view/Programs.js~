@@ -1,0 +1,28 @@
+/**
+ * Demonstrates a NestedList, which uses a TreeStore to drill down through hierarchical data
+ */
+Ext.define('DS.view.Programs', {
+    extend: 'Ext.NestedList',
+    xtype: 'programs',
+    
+    requires: [
+        'Ext.data.TreeStore',
+        'DS.model.Stream'
+    ],
+
+    config: {
+		title: 'Programs',
+		iconCls: 'download',
+        store: {
+            type: 'tree',
+            id: 'NestedListStore',
+            model: 'DS.model.Stream',
+            root: {},
+            proxy: {
+                type: 'ajax',
+                url: 'programs.json'
+            }
+        }
+	}
+});
+

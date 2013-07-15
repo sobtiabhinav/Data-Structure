@@ -1,0 +1,130 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">void bubble(int [], int n);
+void selection(int [], int n);
+void insertion(int [], int n);
+
+void main()
+{
+	int a[20], opt=0, n, i=0;
+	clrscr();
+	while (opt!=4)
+	{
+		clrscr();
+		printf("\n\n *******  MAIN MENU *******");
+		printf("\n\n 1. Bubble Sort \n 2. Insertion Sort \n 3. Selection Sort \n 4. Exit");
+		printf("\n   Enter an option : ");
+		scanf("%d",&amp;opt);
+		switch (opt)
+		{
+			case 1:
+			printf("\n How many elements? ");
+			scanf("%d",&amp;n);
+			printf("\n Enter array of %d unsorted elements : ",n);
+			for (i=0 ; i&lt;n ; i++)
+			{
+				scanf("%d", &amp;a[i]);
+			}
+			bubble (a,n);
+			break;
+
+			case 2:
+			printf("\n How many elements? ");
+			scanf("%d",&amp;n);
+			printf("\n Enter array of %d unsorted elements : ",n);
+			for (i=0 ; i&lt;n ; i++)
+			{
+				scanf("%d", &amp;a[i]);
+			}
+			insertion(a,n);
+			break;
+
+			case 3:
+			printf("\n How many elements? ");
+			scanf("%d",&amp;n);
+			printf("\n Enter array of %d unsorted elements : ",n);
+			for (i=0 ; i&lt;n ; i++)
+			{
+				scanf("%d", &amp;a[i]);
+			}
+			selection(a,n);
+			break;
+
+			case 4:
+			printf("\n\n EXITING PROGRAM!!");
+			break;
+
+			default:
+			printf("\n\n ERROR!! INVALID INPUT");
+		}
+		getch();
+	}
+}
+
+void bubble (int a[10],int n)
+{
+	for (int i=0; i&lt;n; i++)
+	{
+		for (int j=0; j&lt;n-i-1; j++)
+		{
+			if ( a[j] &gt; a[j+1] )
+			{
+				int temp;
+				temp = a[j];
+				a[j] = a[j+1];
+				a[j+1] = temp;
+			}
+		}
+	}
+	printf (" \n The sorted array using bubble sort is : \n \t ");
+	for (i=0; i&lt;n; i++)
+	{
+		printf("%d ",a[i]);
+	}
+}
+
+void insertion (int a[10],int n)
+{
+	for ( int i=1 ; i&lt;n ; i++ )
+	{
+		for (int j = 0 ; j &lt; i ; j++ )
+		{
+			if ( a[j] &gt; a[i] )
+			{
+				int temp = a[j] ;
+				a[j] = a[i] ;
+
+				for ( int k=i ; k&gt;j ; k-- )
+					a[k] = a[k-1] ;
+
+				a[k+1] = temp ;
+			}
+		}
+	}
+	printf (" \n The sorted array using insertion sort is : \n \t ");
+	for (i=0; i&lt;n; i++)
+	{
+		printf("%d ",a[i]);
+	}
+}
+
+void selection (int a[10],int n)
+{
+	for ( int i=0 ; i&lt;n ; i++ )
+	{
+		for (int  j = i + 1 ; j &lt; n ; j++ )
+		{
+			if ( a[i] &gt; a[j] )
+			{
+				int temp = a[i] ;
+				a[i] = a[j] ;
+				a[j] = temp ;
+			}
+		}
+	}
+
+	printf (" \n The sorted array using selection sort is : \n \t ");
+	for (i=0; i&lt;n; i++)
+	{
+		printf("%d ",a[i]);
+	}
+}</pre>

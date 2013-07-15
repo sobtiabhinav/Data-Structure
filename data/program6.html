@@ -1,0 +1,75 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+void main()
+{
+	int arr[20], i, n, element, opt, pos, flag=0, beg, mid, end;
+	clrscr();
+	printf("How many elements? ");
+	scanf("%d",&amp;n);
+	printf("\nEnter %d sorted elements  : ",n);
+	for (i=0; i&lt;n; i++)
+	scanf("%d",&amp;arr[i]);
+	printf("\nThe entered array is :\n");
+		for (i=0; i&lt;n; i++)
+	{
+		printf("%d\t",arr[i]);
+	}
+	for (i=1; i&lt;n; i++)
+	{
+		if (arr[i-1]&gt;arr[i])
+		{
+			printf("\nThe array entered isn't sorted!");
+			printf("\nExiting");
+			getch();
+			exit();
+		}
+	}
+	printf("\n\n\t **MAIN MENU**");
+	printf("\n1. Search using Linear Search");
+	printf("\n2. Search using Binary Search");
+	printf("\n Enter an option : ");
+	scanf("%d",&amp;opt);
+	printf("\nEnter the element to search : ");
+	scanf("%d",&amp;element);
+
+	if (opt==1)
+	{
+		for (i=0; i&lt;n; i++)
+			{
+				if (element==arr[i])
+				{
+					pos=i+1;
+					flag=1;
+					printf("The element is at postion %d",pos);
+				}
+			}
+	}
+
+	else if (opt==2)
+	{
+		beg=0;
+		end=n;
+		for (mid=(beg+end)/2;beg&lt;=end;mid=(beg+end)/2)
+		{
+			if (arr[mid]==element)
+			{
+				printf("\nThe element is at position %d",mid+1);
+				flag=1;
+				break;
+			}
+			if (arr[mid]&gt;element)
+				end=mid-1;
+			else
+				beg=mid+1;
+		}
+
+	if (flag==0)
+	    {
+		printf("\n\n##Element not in array##");
+	    }
+	}
+
+	else printf("\n\n ERROR!! INVALID INPUT");
+	getch();
+}</pre>

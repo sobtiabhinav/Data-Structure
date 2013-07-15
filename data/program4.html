@@ -1,0 +1,54 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-size: 14px; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+ 
+/* A binary tree node has data, pointer to left child 
+   and a pointer to right child */
+struct node 
+{
+    int data;
+    struct node* left;
+    struct node* right;
+};
+ 
+/* Function to get the count of leaf nodes in a binary tree*/
+unsigned int getLeafCount(struct node* node)
+{
+  if(node == NULL)       
+    return 0;
+  if(node-&gt;left == NULL &amp;&amp; node-&gt;right==NULL)      
+    return 1;            
+  else
+    return getLeafCount(node-&gt;left)+
+           getLeafCount(node-&gt;right);      
+}
+ 
+/* Helper function that allocates a new node with the
+   given data and NULL left and right pointers. */
+struct node* newNode(int data) 
+{
+  struct node* node = (struct node*)
+                       malloc(sizeof(struct node));
+  node-&gt;data = data;
+  node-&gt;left = NULL;
+  node-&gt;right = NULL;
+   
+  return(node);
+}
+ 
+/*Driver program to test above functions*/ 
+int main()
+{
+  /*create a tree*/ 
+  struct node *root = newNode(1);
+  root-&gt;left        = newNode(2);
+  root-&gt;right       = newNode(3);
+  root-&gt;left-&gt;left  = newNode(4);
+  root-&gt;left-&gt;right = newNode(5);    
+   
+  /*get leaf count of the above created tree*/
+  printf("Leaf count of the tree is %d", getLeafCount(root));
+   
+  getchar();
+  return 0;
+}</pre>
