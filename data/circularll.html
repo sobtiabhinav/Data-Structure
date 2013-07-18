@@ -1,0 +1,185 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;alloc.h&gt;
+#define null 0
+struct node
+{
+	int info;
+	struct node *link;
+}*start;
+
+void main()
+{
+	int ch,n,m,position,i;
+	last=null;
+	while(1)
+	{
+		printf("1.create 
+		 2.addat
+		 3.addbt
+		 4.del
+		 5.disp
+		 6.exit
+		");
+		printf("er ur ch");
+		scanf("%d",&amp;ch);
+		switch(ch)
+		{
+			case 1:
+			printf("er no of itc");
+			scanf("%d",&amp;n);
+			for(i=0;i&lt;n;i++)
+			{
+				printf("er the element");
+				scanf("%d",&amp;m);
+				create(m);
+			}
+			break;
+	
+			case 2:
+			printf("er the element");
+			scanf("%d",&amp;m);
+			addat(m);
+			break;
+	
+			case 3:
+			printf("er the element");
+			scanf("%d",&amp;m);
+
+			printf("er the position");
+			scanf("%d",&amp;position);
+			addbt(m,position);
+			break;
+			
+			case 4:
+			if(last==null)
+			{
+				printf("list is empty");
+				continue;
+			}
+			printf("er the element for delete");
+			scanf("%d",&amp;m);
+			del(m);
+			break;
+	
+			case 5:
+			disp();
+			break;
+	
+			case 6:
+			exit(0);
+			break;
+	
+			default:
+			printf("wrong choice");
+		}
+	}
+}
+	
+create(int data)
+{
+	struct node *q,*tmp;
+	tmp=(struct node  *)malloc(sizeof(struct node));
+	tmp-&gt;info=data;
+	tmp-&gt;link=null;
+	if(last==null)
+	{
+		last=tmp;
+		tmp-&gt;link=last;
+	}
+	else
+	{
+		tmp-&gt;link=last-&gt;link;
+		last-&gt;link=tmp;
+		last=tmp;
+	}
+}
+
+
+addat(int data)
+{
+
+	struct node *q,*tmp;
+	tmp=(struct node  *)malloc(sizeof(struct node));
+	tmp-&gt;info=data;
+	tmp-&gt;link=last-&gt;link;
+	last-&gt;link=tmp;
+}
+
+addbt(int data,int pos)
+{
+	struct node *tmp,*q;
+	int i;
+	q=last-&gt;link;;
+	for(i=0;i&lt;pos-1;i++)
+	{
+		q=q-&gt;link;
+		if(q==last-&gt;link)
+		{
+			printf("there r lessthan %d elements",pos);
+			return;
+		}
+	}
+	tmp=(struct node  *)malloc(sizeof(struct node));
+	tmp-&gt;link=q-&gt;link;
+	tmp-&gt;info=data;
+	q-&gt;link=tmp;
+	if(q==last)
+	last=tmp;
+}
+
+del(int data)
+{
+	struct node *tmp,*q;
+	if(last-&gt;link==last&amp;&amp;last-&gt;info==data)
+	{
+		tmp=last;
+		last=null;
+		free(tmp);
+		return;
+	}
+	q=last-&gt;link;
+	if(q-&gt;info==data)
+	{
+		tmp=q;
+		last-&gt;link=q-&gt;link;
+		free(tmp);
+		return;
+	}
+	while(q-&gt;link!=last)
+	{
+		if(q-&gt;link-&gt;info==data)
+		{
+			tmp=q-&gt;link;
+			q-&gt;link=tmp-&gt;link;
+			free(tmp);
+			printf("element %d is deleted",data);
+		}
+		if(q-&gt;link-&gt;info=data)
+		{
+			tmp=q-&gt;link;
+			q-&gt;link=last-&gt;link;
+			free(tmp);
+			last=q;
+			return;}
+			printf("element%d is not found",data);
+		}
+	}
+}
+
+disp()
+{
+	struct node *q;
+	if(last==null)
+	{
+	printf("list isdempty");
+	return;
+	}q=last-&gt;link;
+	while(q!=last)
+	{
+		printf("%d",q-&gt;info);
+		q=q-&gt;link;
+	}
+	printf("%d",last-&gt;info);
+}</pre></div>

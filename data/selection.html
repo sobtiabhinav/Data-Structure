@@ -1,0 +1,35 @@
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+void selection_sort();
+int a[50], n;
+
+main()
+{
+	int i;
+	printf("\nEnter size of an array: ");
+	scanf("%d", &amp;n);
+	printf("\nEnter elements of an array:\n");
+	for(i=0; i&lt;n; i++)
+	scanf("%d", &amp;a[i]);
+	selection_sort();
+	printf("\n\nAfter sorting:\n");
+	for(i=0; i&lt;n; i++)
+	printf("\n%d", a[i]);
+	getch();
+}
+
+void selection_sort()
+{
+	int i, j, min, temp;
+	for (i=0; i&lt;n; i++)
+	{
+		min = i;
+		for (j=i+1; j&lt;n; j++)
+		{
+			if (a[j] &lt; a[min])
+			min = j;
+		}
+		temp = a[i];
+		a[i] = a[min];
+		a[min] = temp;
+	}
+}</pre>

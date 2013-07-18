@@ -1,0 +1,82 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;time.h&gt;
+#define MAX 50
+
+void mergeSort(int arr[],int low,int mid,int high);
+void partition(int arr[],int low,int high);
+
+void main(){
+   
+    int merge[MAX],i,n;
+	clock_t top, bottom;
+    printf("Enter the total number of elements: ");
+    scanf("%d",&amp;n);
+
+    printf("Enter the elements which to be sort: ");
+    for(i=0;i&lt;n;i++){
+         scanf("%d",&amp;merge[i]);
+    }
+	top = clock();
+    partition(merge,0,n-1);
+	delay(100);
+	bottom = clock();
+    printf("After merge sorting elements are: ");
+    for(i=0;i&lt;n;i++){
+         printf("%d ",merge[i]);
+    }
+	printf("\n\nThe time complexity is : %f", (bottom-top)/CLK_TCK);
+	getch();
+}
+
+void partition(int arr[],int low,int high){
+
+    int mid;
+
+    if(low&lt;high){
+         mid=(low+high)/2;
+         partition(arr,low,mid);
+         partition(arr,mid+1,high);
+         mergeSort(arr,low,mid,high);
+    }
+}
+
+void mergeSort(int arr[],int low,int mid,int high){
+
+    int i,m,k,l,temp[MAX];
+
+    l=low;
+    i=low;
+    m=mid+1;
+
+    while((l&lt;=mid)&amp;&amp;(m&lt;=high)){
+
+         if(arr[l]&lt;=arr[m]){
+             temp[i]=arr[l];
+             l++;
+         }
+         else{
+             temp[i]=arr[m];
+             m++;
+         }
+         i++;
+    }
+
+    if(l&gt;mid){
+         for(k=m;k&lt;=high;k++){
+             temp[i]=arr[k];
+             i++;
+         }
+    }
+    else{
+         for(k=l;k&lt;=mid;k++){
+             temp[i]=arr[k];
+             i++;
+         }
+    }
+   
+    for(k=low;k&lt;=high;k++){
+         arr[k]=temp[k];
+    }
+}</pre>

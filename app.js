@@ -29,47 +29,152 @@ Ext.application({
         {
             title: 'Operations on Arrays',
             xtype: 'htmlPage',
-            url: 'data/program1.html'
+            url: 'data/array.html'
         },
 	{
             title: 'Doubly Linked List',
             xtype: 'htmlPage',
-            url: 'data/program2.html'
+            url: 'data/doublyll.html'
         },
         {
             title: 'Operations on Matrices',
             xtype: 'htmlPage',
-            url: 'data/program3.html'
+            url: 'data/matrix.html'
         },
         {
             title: 'Nodes in a Tree',
             xtype: 'htmlPage',
-            url: 'data/program4.html'
+            url: 'data/nodes.html'
         },
 	{
             title: 'Insertion and Deletion in a Queue',
             xtype: 'htmlPage',
-            url: 'data/program5.html'
+            url: 'data/queue.html'
         },
 	{
             title: 'Linear and Binary Search',
             xtype: 'htmlPage',
-            url: 'data/program6.html'
+            url: 'data/search.html'
         },
 	{
             title: 'Singly Linked List',
             xtype: 'htmlPage',
-            url: 'data/program7.html'
-        },
-	{
-            title: 'Sortings',
-            xtype: 'htmlPage',
-            url: 'data/program8.html'
+            url: 'data/singlyll.html'
         },
 	{
             title: 'Push and Pop Operations on Stack',
             xtype: 'htmlPage',
-            url: 'data/program9.html'
+            url: 'data/stack.html'
+        },
+	{
+            title: 'Activity Selector',
+            xtype: 'htmlPage',
+            url: 'data/act.html'
+        },
+	{
+            title: 'Breadth First Search',
+            xtype: 'htmlPage',
+            url: 'data/bfs.html'
+        },
+	{
+            title: 'Depth First Search',
+            xtype: 'htmlPage',
+            url: 'data/dfs.html'
+        },
+	{
+            title: 'Dijkstra Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/dij.html'
+        },
+	{
+            title: 'Insertion Sort Complexity',
+            xtype: 'htmlPage',
+            url: 'data/insert.html'
+        },
+	{
+            title: 'Kruskal Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/kruskal.html'
+        },
+	{
+            title: 'Longest Common Subsequence',
+            xtype: 'htmlPage',
+            url: 'data/lcs.html'
+        },
+	{
+            title: 'Merge Sort Comlexity',
+            xtype: 'htmlPage',
+            url: 'data/merge.html'
+        },
+	{
+            title: 'Paranthesization Of Matrices',
+            xtype: 'htmlPage',
+            url: 'data/paran.html'
+        },
+	{
+            title: 'Prims Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/prims.html'
+        },
+	{
+            title: 'Bubble Sort',
+            xtype: 'htmlPage',
+            url: 'data/bubble.html'
+        },
+	{
+            title: 'Circular Linked List',
+            xtype: 'htmlPage',
+            url: 'data/circularll.html'
+        },
+	{
+            title: 'Circular Queue Using Array',
+            xtype: 'htmlPage',
+            url: 'data/cirquarr.html'
+        },
+	{
+            title: 'Binary Tree',
+            xtype: 'htmlPage',
+            url: 'data/binarytree.html'
+        },
+	{
+            title: 'Insertion Sort',
+            xtype: 'htmlPage',
+            url: 'data/insertionsort.html'
+        },
+	{
+            title: 'Merge Sort Using Array',
+            xtype: 'htmlPage',
+            url: 'data/mergearray.html'
+        },
+	{
+            title: 'Queue Using Linked List',
+            xtype: 'htmlPage',
+            url: 'data/qullist.html'
+        },
+	{
+            title: 'Quick Sort',
+            xtype: 'htmlPage',
+            url: 'data/quicksort.html'
+        },
+	{
+            title: 'Reverse a Linked List',
+            xtype: 'htmlPage',
+            url: 'data/revll.html'
+        },
+	{
+            title: 'Reverse Elements in Queue',
+            xtype: 'htmlPage',
+            url: 'data/revqueue.html'
+        },
+	{
+            title: 'Selection Sort',
+            xtype: 'htmlPage',
+            url: 'data/selection.html'
+        },
+	{
+            title: 'Stack Using Linked List',
+            xtype: 'htmlPage',
+            url: 'data/stackull.html'
         }
     ],
 

@@ -1,0 +1,118 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+
+struct stack
+{
+	int info;
+	struct stack *next;
+};
+typedef struct stack node;
+
+class stlink
+{
+	node *start;
+	public:
+	stlink()
+	{
+		start=NULL;
+	}
+	void display(void);
+	void push(int);
+	int pop(void);
+};
+
+void stlink::push(int term)
+{
+	node *p,*s;
+	s=start;
+	if(s==NULL||s!=NULL)
+	{
+	p=(node *)malloc(sizeof(node));
+	p-&gt;info=term;
+	p-&gt;next=s;
+	s=p;
+	}
+	start=s;
+	return;
+}
+
+void stlink::display(void)
+{
+	node *temp;
+	if(start==NULL)
+	{
+		cout &lt;&lt; endl&lt;&lt;"UNDERFLOEW";
+	}
+	temp=start;
+	while(temp!=NULL)
+	{
+		cout &lt;&lt; endltemp=temp-&gt;next;
+	}
+	return;
+}
+
+int stlink::pop(void)
+{
+	int term;
+	if(start==NULL)
+	{
+		cout&lt;&lt;"UNDERFLOW";
+		return(-1);
+	}
+	else
+	{
+		node *p;
+		term=start-&gt;info;
+		p=start;
+		free(start);
+		start=p-&gt;next;
+		return(term);
+	}
+}
+
+int main()
+{
+	stlink s1;
+	int ch,temp;
+	do
+	{
+		clrscr();
+		cout&lt;&lt;"1-&gt;Push\n";
+		cout&lt;&lt;"2-&gt;Display\n";
+		cout&lt;&lt;"3-&gt;Pop\n";
+		cout&lt;&lt;"4-&gt;Exit\n";
+		cout&lt;&lt;"Enter your choice:";
+		cin&gt;&gt;ch;
+		switch(ch)
+		{
+			case 1:
+			cout&lt;&lt;"Enter the term to push:";
+			cin&gt;&gt;temp;
+			s1.push(temp);
+			break;
+	
+			case 2 :
+			cout &lt;&lt; endl&lt;&lt;"Stack";
+			s1.display();
+			getch();
+			break;
+	
+			case 3 :
+			temp=s1.pop();
+			if(temp!=-1)
+			cout&lt;&lt;"Popped term is " &lt;&lt; temp;
+			getch();
+			break;
+	
+			case 4 :
+			cout&lt;&lt;"Exiting";
+			getch();
+			break;
+
+			default:
+			cout&lt;&lt;"Invalid choice";
+			getch();
+			break;
+		}
+	}while(ch!=4);
+	return(0);
+}</pre></div>

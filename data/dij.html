@@ -1,0 +1,48 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#define infinity 999
+ 
+void dij(int n,int v,int cost[10][10],int dist[])
+{
+	int i,u,count,w,flag[10],min;
+	for(i=1;i&lt;=n;i++)
+	flag[i]=0,dist[i]=cost[v][i];
+	count=2;
+	while(count&lt;=n)
+	{
+		min=99;
+		for(w=1;w&lt;=n;w++)
+		if(dist[w]&lt;min &amp;&amp; !flag[w])
+		min=dist[w],u=w;
+		flag[u]=1;
+		count++;
+		for(w=1;w&lt;=n;w++)
+		if((dist[u]+cost[u][w]&lt;dist[w]) &amp;&amp; !flag[w])
+		dist[w]=dist[u]+cost[u][w];
+	}
+}
+ 
+void main()
+{
+	int n,v,i,j,cost[10][10],dist[10];
+	clrscr();
+	printf("\n Enter the number of nodes:");
+	scanf("%d",&amp;n);
+	printf("\n Enter the cost matrix:\n");
+	for(i=1;i&lt;=n;i++)
+	for(j=1;j&lt;=n;j++)
+	{	
+		scanf("%d",&amp;cost[i][j]);
+		if(cost[i][j]==0)
+		cost[i][j]=infinity;
+	}	
+	printf("\n Enter the source matrix:");
+	scanf("%d",&amp;v);
+	dij(n,v,cost,dist);
+	printf("\n Shortest path:\n");
+	for(i=1;i&lt;=n;i++)
+	if(i!=v)
+	printf("%d-&gt;%d,cost=%d\n",v,i,dist[i]);
+	getch();
+}</pre>

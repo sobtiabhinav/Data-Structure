@@ -1,0 +1,189 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+
+struct stackrecord
+{
+	int *array;
+	int capacity;
+	int tos;
+};
+	typedef struct stackrecord *stack;
+	stack createstack(int max)
+	{
+		stack s;
+		s=malloc(sizeof(struct stackrecord));
+		if(s==NULL)
+	{
+	printf("out of space");
+	}
+		s-&gt;array=malloc((sizeof(int))*max);
+		if(s-&gt;array==NULL)
+	{
+	printf("out of space");
+	}
+		s-&gt;capacity=max-1;
+		s-&gt;tos=-1;
+		return(s);
+	}
+
+int isemptys(stack s)
+{
+	return s-&gt;tos==-1;
+}
+
+int isfulls(stack s)
+{
+	return s-&gt;tos==s-&gt;capacity;
+}
+
+void push(int x,stack s)
+{
+	if(isfulls(s))
+		printf("Overflow");
+	else
+	{
+		printf("\n %d is pushed",x);
+		s-&gt;tos++;
+		s-&gt;array[s-&gt;tos]=x;
+	}
+}
+
+int topandpop(stack s)
+{
+	if(isemptys(s))
+	{
+		printf("\n empty stack");
+		return;
+	}
+	else
+	{
+		printf("\n %d is popped",s-&gt;array[s-&gt;tos]);
+		return s-&gt;array[s-&gt;tos--];
+	}
+}
+
+struct queuerecord
+{
+	int *array;
+	int front;
+	int rear;
+	int capacity;
+};
+
+typedef struct queuerecord *queue;
+
+queue createqueue(int max)
+{
+		queue q;
+		q=malloc(sizeof(struct queuerecord));
+		if(q==NULL)
+		printf("Error");
+		q-&gt;array=malloc(sizeof(int)*max);
+		if(q-&gt;array==NULL)
+		printf("Error");
+		q-&gt;capacity=max-1;
+		q-&gt;front=-1;
+		q-&gt;rear=-1;
+		return q;
+}
+
+int isfullq(queue q)
+{
+	return (q-&gt;rear==q-&gt;capacity);
+}
+
+int isemptyq(queue q)
+{
+	return (q-&gt;front==-1);
+}
+
+void enqueue(queue q,int x)
+{
+	if(isfullq(q))
+	printf("overflows");
+	else
+	{
+		printf("\n %d is enqueued",x);
+		q-&gt;rear++;
+		q-&gt;array[q-&gt;rear]=x;
+		if(q-&gt;front==-1)
+		q-&gt;front++;
+	}
+}
+
+int frontanddelete(queue q)
+{
+	int p;
+	if(isemptyq(q))
+	{
+		printf("underflow");
+		return;
+	}
+	else
+	{
+		p=q-&gt;array[q-&gt;front];
+		printf("\n %d is front and deleted",p);
+		q-&gt;front++;
+		return p;
+	}
+}
+
+void display(queue q)
+{
+	int i;
+	if(isemptyq(q))
+	{
+		printf("underflow");
+		return;
+	}
+	for(i=q-&gt;front;irear;i++)
+		printf("%d\t",q-&gt;array[i]);
+}
+	
+int main()
+{
+	int max,ele,i,choice,n=0,y,z;
+	queue q;
+	stack s;
+	printf("\n Enter the maximum elements:");
+	scanf("%d",&amp;max);
+	q=createqueue(max);
+	s=createstack(max);
+	while(1)
+	{
+		printf("\n Menu:1.Insert 2.Display reversed order 3.exit");
+		printf("\n Enter the choice:");
+		scanf("%d",&amp;choice);
+		switch(choice)
+		{
+			case 1:
+			printf("\n Enter the element:");
+			scanf("%d",&amp;ele);
+			enqueue(q,ele);
+			n++;
+			break;
+		
+			case 2:
+			printf("\n Contents of the queue:");
+			display(q);
+			for(i=0;i&lt; capacity;i++)
+			{
+				z=frontanddelete(q),s;
+				push(z,s);
+			}
+		q-&gt;front=-1;
+		q-&gt;rear=-1;
+		for(i=0;i&lt; capacity;i++)
+		{
+			y=topandpop(s);
+			enqueue(q,y);
+		}
+		printf("\n Reversed contents are:");
+		display(q);
+		break;
+	
+		case 3:
+		exit(0);
+		}
+	}
+}</pre></div>

@@ -1,0 +1,49 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">
+
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+
+int a[20][20],reach[20],n;
+
+void dfs(int v)
+{
+	int i;
+	reach[v]=1;
+	for(i=1;i&lt;=n;i++)
+	if(a[v][i] &amp;&amp; !reach[i])
+	{
+		printf("\n %d-&gt;%d",v,i);
+		dfs(i);
+	}
+}
+
+void main()
+{
+	int i,j,count=0;
+	clrscr();
+	printf("\n Enter number of vertices:");
+	scanf("%d",&amp;n);
+	for(i=1;i&lt;=n;i++)
+	{
+		reach[i]=0;
+		for(j=1;j&lt;=n;j++)
+		a[i][j]=0;
+	}
+	printf("\n Enter the adjacency matrix:\n");
+	for(i=1;i&lt;=n;i++)
+	for(j=1;j&lt;=n;j++)
+		scanf("%d",&amp;a[i][j]);
+	dfs(1);
+	printf("\n");
+	for(i=1;i&lt;=n;i++)
+	{
+		if(reach[i])
+		count++;
+	}
+	if(count==n)
+	printf("\n Graph is connected");
+	else
+	printf("\n Graph is not connected");
+	getch();
+}</pre>

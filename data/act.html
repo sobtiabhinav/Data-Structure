@@ -1,0 +1,42 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">
+
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+
+act_sel(int a[20],int b[20],int x)
+{
+	int m,c[10],j,k;
+	c[0]=1;k=1;j=1;
+	for(m=2;m&lt;=x;m++)
+	{
+		if(a[m]&gt;=b[j])
+		{
+			c[k]=m;
+			j=m;
+			k=k+1;
+		}
+	}
+	printf("\nThe possible activities are: ");
+	for(j=0;j&lt;k;j++)
+	{
+	printf("c%d ",c[j]);
+	}
+	return 0;
+}
+
+void main()
+{
+	int a[20],b[20],i,x;
+	clrscr();
+	printf("\nEnter number of activities: ");
+	scanf("%d",&amp;x);
+	printf("\nEnter the starting time of activities: ");
+	for(i=1;i&lt;=x;i++)
+	scanf("%d",&amp;a[i]);
+	printf("Enter the finish time of activities: ");
+	for(i=1;i&lt;=x;i++)
+	scanf("%d",&amp;b[i]);
+	act_sel(a,b,x);
+	getch();
+}</pre></div>

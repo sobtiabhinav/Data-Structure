@@ -1,0 +1,97 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+
+struct node
+{
+	int info;
+	struct node *link;
+}*front = NULL, *rear = NULL;
+
+void insert();
+void delet();
+void display();
+int item;
+
+main()
+{
+	int ch;
+	do
+	{
+		printf("\n\n1.\tInsert\n2.\tDelete\n3.\tDisplay\n4.\tExit\n");
+		printf("\nEnter your choice: ");
+		scanf("%d", &amp;ch);
+		switch(ch)
+		{
+			case 1:
+			insert();
+			break;
+			
+			case 2:
+			delet();
+			break
+			
+			case 3:
+			display();
+			break;
+			
+			case 4:
+			exit(0);
+			
+			default:
+			printf("\n\nInvalid choice. Please try again...\n");
+		}
+	} while(1);
+	getch();
+}
+
+void insert()
+{
+	printf("\n\nEnter ITEM: ");
+	scanf("%d", &amp;item);
+	if(rear == NULL)
+	{
+		rear = (struct node *)malloc(sizeof(struct node));
+		rear-&gt;info = item;
+		rear-&gt;link = NULL;
+		front = rear;
+	}
+	else
+	{
+		rear-&gt;link = (struct node *)malloc(sizeof(struct node));
+		rear = rear-&gt;link;
+		rear-&gt;info = item;
+		rear-&gt;link = NULL;
+	}
+}
+
+void delet()
+{
+	struct node *ptr;
+	if(front == NULL)
+	printf("\n\nQueue is empty.\n");
+	else
+	{
+		ptr = front;
+		item = front-&gt;info;
+		front = front-&gt;link;
+		free(ptr);
+		printf("\nItem deleted: %d\n", item);
+		if(front == NULL)
+		rear = NULL;
+	}
+}
+
+void display()
+{
+	struct node *ptr = front;
+	if(rear == NULL)
+	printf("\n\nQueue is empty.\n");
+	else
+	{
+		printf("\n\n");
+		while(ptr != NULL)
+		{
+			printf("%d\t",ptr-&gt;info);
+			ptr = ptr-&gt;link;
+		}
+	}
+}</pre></div>

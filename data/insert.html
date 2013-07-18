@@ -1,0 +1,35 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;time.h&gt;
+
+void main()
+{
+	int i,j,s,temp,a[20];
+	clock_t top,bottom;
+	clrscr();
+	printf("Enter total elements: ");
+	scanf("%d",&amp;s);
+	printf("Enter %d elements: ",s);
+	for(i=0;i&lt;s;i++)
+		scanf("%d",&amp;a[i]);
+	top = clock();
+	for(i=1;i&lt;s;i++)
+	{
+		temp=a[i];
+		j=i-1;
+		while((temp&lt;a[j])&amp;&amp;(j&gt;=0))
+		{
+			a[j+1]=a[j];
+			j=j-1;
+		}
+    a[j+1]=temp;
+	}
+	delay(100);
+	bottom = clock();
+	printf("After sorting: ");
+	for(i=0;i&lt;s;i++)
+		printf(" %d",a[i]);
+	printf("\n\nThe time complexity is : %f", (bottom-top)/CLK_TCK);
+	getch();
+}</pre>

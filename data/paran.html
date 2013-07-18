@@ -1,0 +1,67 @@
+
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">
+
+#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;string.h&gt;
+
+int pop(int s[10][10],int i,int j);
+
+int POM(int P[10],int x)
+{
+	int n,i,j,k,q,l,m[10][10],s[10][10];
+	n=x;
+	for(i=1;i&lt;=n;i++)
+	{
+	m[i][i]=0;
+	}
+	for(l=2;l&lt;=n;l++)
+	{
+		for(i=1;i&lt;=n-l+1;i++)
+		{
+			j=i+l-1;
+			m[i][j]=32000;
+			for(k=i;k&lt;=j-1;k++)
+			{
+				q=m[i][k]+m[k+1][j]+(P[i-1]*P[k]*P[j]);
+				if(q&lt;m[i][j])
+				{
+					m[i][j]=q;
+					s[i][j]=k;
+				}
+			}
+		}
+	}
+	pop(s,1,x);
+	return s[10][10];
+}
+
+int pop(int s[10][10],int i,int x)
+{
+	if(i==x)
+	printf(" A%d ",i);
+	else
+	{
+		printf(" ( ");
+		pop(s,i,s[i][x]);
+		pop(s,s[i][x]+1,x);
+		printf(" ) ");
+	}
+	return 0;
+}
+
+void main()
+{
+	int i,x,y,P[10];
+	clrscr();
+	printf("Enter the no. of matrices: ");
+	scanf("%d",&amp;x);
+	printf("Enter the dimensions of matrices:\n");
+	for(i=0;i&lt;=x;i++)
+	{	
+		printf("P%d = ",i);
+		scanf("%d",&amp;P[i]);
+	}
+	POM(P,x);
+	getch();
+}</pre>

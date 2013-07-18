@@ -1,0 +1,158 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;alloc.h&gt;
+
+struct node
+{
+	int data;
+	struct node *left,*right;
+};
+struct node *root;
+		
+void insert(int x)
+{
+	struct node *p,*previous,*current;
+	p=(struct node *)malloc(sizeof(struct node));
+	if(p==NULL)
+	{
+		printf("\n Out of memory");
+	}
+	p-&gt;data=x;
+	p-&gt;left=NULL;
+	p-&gt;right=NULL;
+	if(root=NULL)
+	{
+		root=p;
+		return;
+	}
+	previous=NULL;
+	current=root;
+	while(current!=NULL)
+	{
+		previous=current;
+		if(p-&gt;data&lt;current-&gt;data)
+			current=current-&gt;left;
+		else
+			current=current-&gt;right;
+	}
+	if(p-&gt;data&lt;previous-&gt;data)
+		previous-&gt;left=p;
+	else
+		previous-&gt;right=p;
+}
+	
+void inorder(struct node *t)
+{
+	if (t!=NULL)
+	{
+		inorder(t-&gt;left);
+		printf("\n %5d",t-&gt;data);
+		inorder (t-&gt;right);
+	}
+}
+	
+void del(int x)
+{
+	int tright=0,tleft=0;
+	struct node *ptr=root;
+	struct node *parent=root;
+	struct node *t1=root;
+	struct node *temp=root;
+	while(ptr!=NULL&amp;&amp; ptr-&gt;data!=x)
+	{
+		parent=ptr;
+		if (x&lt;ptr-&gt;data)
+		ptr=ptr-&gt;left;
+			else
+		ptr=ptr-&gt;right;
+	}
+	if (ptr==NULL)
+	{
+		printf("\n Delete element not found");
+		return ;
+	}
+	else if(t1-&gt;data==x &amp;&amp; (t1-&gt;left ==NULL || t1-&gt;right==NULL))
+		if(t1-&gt;left==NULL)
+			t1=t1-&gt;right;
+		else
+			t1=t1-&gt;left;
+	else if (ptr-&gt;left==NULL)
+		if (x&lt;parent-&gt;data)
+			parent-&gt;left=ptr-&gt;right;
+		else
+			parent-&gt;right=ptr-&gt;right;
+	else if (ptr-&gt;right==NULL)
+		if (x&lt;parent-&gt;data)
+			parent-&gt;left=ptr-&gt;left;
+		else
+			parent-&gt;right=ptr-&gt;left;
+	else
+	{
+		temp=ptr;
+		parent=ptr;
+		if((ptr-&gt;left)&gt;=(ptr-&gt;right))
+		{
+			ptr=ptr-&gt;left;
+			while(ptr-&gt;right!=NULL)
+			{
+				tright=1;
+				parent=ptr;
+				ptr=ptr-&gt;right;
+			}
+			temp-&gt;data=ptr-&gt;data;
+			if(tright)
+				parent-&gt;right=ptr-&gt;left;
+			else
+				parent-&gt;left=ptr-&gt;left;
+		}
+		else
+		{
+			ptr=ptr-&gt;right;
+			while (ptr-&gt;left!=NULL)
+			{
+				tleft=1;
+				parent=ptr;
+				ptr=ptr-&gt;left;
+			}
+			temp-&gt;data=ptr-&gt;data;
+			if(tleft)
+				parent-&gt;left=ptr-&gt;right;
+			else
+				parent-&gt;right=ptr-&gt;right;
+		}
+		free(ptr);
+	}
+}
+
+void main()
+{
+	int op,n,srchno;
+	root=(struct node *)malloc(sizeof(struct node));
+	root-&gt;data=30;
+	root-&gt;right=root-&gt;left=NULL;
+	clrscr();
+	do
+	{
+		printf("\n 1.Insertion");
+		printf("\n 2.Deletion");
+		printf("\n 3.Inorder");
+		printf("\n 4.Quit");
+		printf("\n Enter your choice\n");
+		scanf("%d",&amp;op);
+		switch (op)
+		{
+		case 1: printf("\n Enter the element to insert\n");
+		scanf("%d",&amp;n);
+		insert(n);
+		break;
+		case 2: printf("\n Enter the element to be deleted\n"); scanf("%d",&amp;srchno);
+		del(srchno);
+		break;
+		case 3: printf("\n The inorder elements are\n"); inorder(root);
+		getch();
+		break;
+		default: exit(0);
+		}
+	}while(op&lt;4);
+	getch();
+}</pre></div>
