@@ -1,0 +1,211 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+typedef enum { FALSE ,TRUE } bool;
+
+struct node
+{
+	int info;
+	int balance;
+	struct node *lchild;
+	struct node *rchild;
+};
+struct node *insert (int , struct node *, int *);
+struct node* search(struct node *,int);
+
+main()
+{
+	bool ht_inc;
+	int info ;
+	int choice;
+	struct node *root = (struct node *)malloc(sizeof(struct node));
+	root = NULL;
+
+		while(1)
+		{	
+			printf("1.Insert\n");
+			printf("2.Display\n");
+			printf("3.Quit\n");
+			printf("Enter your choice : ");
+			scanf("%d",&amp;choice);
+			switch(choice)
+			{
+			case 1:
+				printf("Enter the value to be inserted : ");
+				scanf("%d", &amp;info);
+				if( search(root,info) == NULL )
+					root = insert(info, root, &amp;ht_inc);
+				else
+					printf("Duplicate value ignored\n");
+				break;
+			case 2:
+			if(root==NULL)
+			{
+					printf("Tree is empty\n");
+				continue;
+			}	
+			printf("Tree is :\n");
+			display(root, 1);
+			printf("\n\n");
+			printf("Inorder Traversal is: ");
+			inorder(root);
+			printf("\n");
+				break;
+			case 3:
+				exit(1);
+			default:
+				printf("Wrong choice\n");
+		   }
+		}
+}
+
+struct node* search(struct node *ptr,int info)
+{
+	if(ptr!=NULL)
+	if(info &lt; ptr-&gt;info)
+	ptr=search(ptr-&gt;lchild,info);
+	else if( info &gt; ptr-&gt;info)
+	ptr=search(ptr-&gt;rchild,info);
+	return(ptr);
+}
+
+struct node *insert (int info, struct node *pptr, int *ht_inc)
+{
+	struct node *aptr;
+	struct node *bptr;
+	if(pptr==NULL)
+	{	
+		pptr = (struct node *) malloc(sizeof(struct node));
+		pptr-&gt;info = info;
+		pptr-&gt;lchild = NULL;
+		pptr-&gt;rchild = NULL;
+		pptr-&gt;balance = 0;
+		*ht_inc = TRUE;
+		return (pptr);
+	}
+	if(info &lt; pptr-&gt;info)
+	{
+		pptr-&gt;lchild = insert(info, pptr-&gt;lchild, ht_inc);
+		if(*ht_inc==TRUE)
+		{
+			switch(pptr-&gt;balance)
+			{
+			case -1:
+				pptr-&gt;balance = 0;
+				*ht_inc = FALSE;
+				break;
+			
+			case 0:
+				pptr-&gt;balance = 1;
+				break;
+			
+			case 1: 
+				if(aptr-&gt;balance == 1)
+				{
+					printf("Left to Left Rotation\n");
+					pptr-&gt;lchild= aptr-&gt;rchild;
+					aptr-&gt;rchild = pptr;
+					pptr-&gt;balance = 0;
+					aptr-&gt;balance=0;
+					pptr = aptr;
+				}
+				else
+				{
+					printf("Left to right rotation\n");
+					bptr = aptr-&gt;rchild;
+					aptr-&gt;rchild = bptr-&gt;lchild;
+					bptr-&gt;lchild = aptr;
+					pptr-&gt;lchild = bptr-&gt;rchild;
+					bptr-&gt;rchild = pptr;
+
+					if(bptr-&gt;balance == 1 )
+						pptr-&gt;balance = -1;
+					else
+						pptr-&gt;balance = 0;
+					if(bptr-&gt;balance == -1)
+						aptr-&gt;balance = 1;
+					else
+						aptr-&gt;balance = 0;
+					bptr-&gt;balance=0;
+					pptr=bptr;
+				}
+				*ht_inc = FALSE;
+			}	
+		}
+	}
+	if(info &gt; pptr-&gt;info)
+	{
+		pptr-&gt;rchild = insert(info, pptr-&gt;rchild, ht_inc);
+		if(*ht_inc==TRUE)
+		{
+			switch(pptr-&gt;balance)
+			{
+			case 1:
+				pptr-&gt;balance = 0;
+				*ht_inc = FALSE;
+				break;
+				
+			case 0:
+				pptr-&gt;balance = -1;
+				break;
+				
+			case -1:
+				aptr = pptr-&gt;rchild;
+				if(aptr-&gt;balance == -1)
+				{
+					printf("Right to Right Rotation\n");
+					pptr-&gt;rchild= aptr-&gt;lchild;
+					aptr-&gt;lchild = pptr;
+					pptr-&gt;balance = 0;
+					aptr-&gt;balance=0;
+					pptr = aptr;
+				}
+				else
+				{
+					printf("Right to Left Rotation\n");
+					bptr = aptr-&gt;lchild;
+					aptr-&gt;lchild = bptr-&gt;rchild;
+					bptr-&gt;rchild = aptr;
+					pptr-&gt;rchild = bptr-&gt;lchild;
+					bptr-&gt;lchild = pptr;
+					if(bptr-&gt;balance == -1)
+						pptr-&gt;balance = 1;
+					else
+						pptr-&gt;balance = 0;
+					if(bptr-&gt;balance == 1)
+						aptr-&gt;balance = -1;
+					else
+						aptr-&gt;balance = 0;
+						bptr-&gt;balance=0;
+						pptr = bptr;
+				}
+				*ht_inc = FALSE;
+			}
+		}
+	}
+	return(pptr);
+}
+
+display(struct node *ptr,int level)
+{
+	int i;
+	if ( ptr!=NULL )
+	{
+		display(ptr-&gt;rchild, level+1);
+		printf("\n");
+		for (i = 0; i &lt; level; i++) 
+			printf(" "); 
+			printf("%d", ptr-&gt;info);
+			display(ptr-&gt;lchild, level+1);
+	}
+}
+
+inorder(struct node *ptr)
+{
+	if(ptr!=NULL)
+	{
+		inorder(ptr-&gt;lchild);
+		printf("%d ",ptr-&gt;info);
+		inorder(ptr-&gt;rchild);
+	}
+}</pre></div>

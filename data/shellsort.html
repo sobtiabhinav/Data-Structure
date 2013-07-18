@@ -1,0 +1,38 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+int main()
+{
+	 int arr[30];
+	 int i,j,k,tmp,num;
+	 printf("Enter total no. of elements : ");
+	 scanf("%d", &amp;num);
+	 for(k=0; k&lt;num; k++)
+	{
+	   printf("\nEnter %d number : ",k+1);
+	   scanf("%d",&amp;arr[k]);
+	}
+	
+	for(i=num/2; i&gt;0; i=i/2)
+	{
+		for(j=i; j&lt;num; j++)
+		{
+			for(k=j-i; k&gt;=0; k=k-i)
+			{
+				if(arr[k+i]&gt;=arr[k])
+					break;
+				else
+				{
+					tmp=arr[k];
+					arr[k]=arr[k+i];
+					arr[k+i]=tmp;
+				}
+			}
+		}
+	}
+	printf("\t**** Shell Sorting ****\n");
+	for(k=0; k&lt;num; k++)
+		printf("%d\t",arr[k]);
+	getch();
+	return 0;
+}</pre></div>

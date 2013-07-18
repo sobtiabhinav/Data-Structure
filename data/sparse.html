@@ -1,0 +1,53 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+
+void main()
+{
+	 int A[10][10],B[10][3],m,n,s=0,i,j;
+	 clrscr();
+	 printf("\nEnter the order m x n of the sparse matrix\n");
+	 scanf("%d%d",&amp;m,&amp;n);
+	 printf("\nEnter the elements in the sparse matrix(mostly zeroes)\n");
+	 for(i=0;i&lt;m;i++)
+	 {
+		for(j=0;j&lt;n;j++)
+		{
+		   printf("\n%d row and %d column:   ",i,j);
+		   scanf("%d",&amp;A[i][j]);
+		}
+	 }
+	 printf("The given matrix is:\n");
+	 for(i=0;i&lt;m;i++)
+	 {
+		for(j=0;j&lt;n;j++)
+		{
+			printf("%d ",A[i][j]);
+		}
+		printf("\n");
+	 }
+	 for(i=0;i&lt;m;i++)
+	 {
+		for(j=0;j&lt;n;j++)
+		{
+			if(A[i][j]!=0)
+			{
+				B[s][0]=A[i][j];
+				B[s][1]=i;
+				B[s][2]=j;
+				s++;
+			}
+		}
+	}
+	 printf("\nThe sparse matrix is given by");
+	 printf("\n");
+	 for(i=0;i&lt;s;i++)
+	 {
+		for(j=0;j&lt;3;j++)
+		{
+			printf("%d ",B[i][j]);
+		}
+		printf("\n");
+	}
+	getch();
+}</pre></div>

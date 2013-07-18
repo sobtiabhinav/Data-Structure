@@ -1,0 +1,39 @@
+<pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; text-align: left; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+#include &lt;stdlib.h&gt;
+#define MAXSIZE 10
+&nbsp;
+void main()
+{
+	&nbsp;int a[MAXSIZE];
+	&nbsp;int i, N,power;
+	&nbsp;float x, polySum;
+	&nbsp;clrscr();
+&nbsp;	 printf("Enter the order of the polynomial\n");
+	&nbsp;scanf("%d", &amp;N);
+	&nbsp;printf("Enter the value of x\n");
+	 scanf("%f", &amp;x);
+&nbsp;	 printf("Enter %d coefficients\n",N+1);
+&nbsp;	 for (i=0;i &lt;= N;i++)
+&nbsp;	 	scanf("%d",&amp;a[i]);
+&nbsp;	 polySum = a[0];
+	 for (i=1;i&lt;= N;i++)
+		polySum = polySum * x + a[i];
+	&nbsp;	power = N;
+&nbsp;	printf("Given polynomial is:\n");
+&nbsp;	for (i=0;i&lt;= N;i++)
+&nbsp;	{
+&nbsp;&nbsp;		if (power &lt; 0)
+&nbsp;&nbsp;		{
+&nbsp;&nbsp;&nbsp;			break;
+&nbsp;&nbsp;		}
+&nbsp;	if (a[i] &gt; 0)
+&nbsp;&nbsp;&nbsp; 	printf(" + ");
+&nbsp;&nbsp;  else if (a[i] &lt; 0)
+&nbsp;&nbsp;&nbsp; 	printf(" - ");
+&nbsp;&nbsp; else
+&nbsp;&nbsp;&nbsp;		printf (" ");
+&nbsp;&nbsp;		printf("%dx^%d&nbsp; ",abs(a[i]),power--);
+&nbsp;	}
+&nbsp;		printf("\nSum of the polynomial = %6.2f\n",polySum);
+}</pre>

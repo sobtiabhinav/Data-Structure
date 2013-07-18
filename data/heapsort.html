@@ -1,0 +1,57 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+
+int main()
+{
+      int TREE[10],N,i,j,K,p,c,temp;
+      printf("\n\n Enter no of elements..");
+      scanf("%d",&amp;N);
+      printf("\n\n Enter the nos..");
+      for(i=1;i&lt;=N;i++)
+      scanf("%d",&amp;TREE[i]);
+      for(i=2;i&lt;=N;i++)
+      {
+          K=i;
+          do
+          {
+              if(TREE[K]&gt;TREE[K/2])                          
+              {
+                  temp=TREE[K];
+                  TREE[K]=TREE[K/2];
+                  TREE[K/2]=temp;
+              }
+              p=K/2;
+              K=p;
+          }
+          while(K!=0);
+      }
+      printf("\n\n\n On inserting values are arranged as \n");
+      for(i=1;i&lt;=N;i++)                                
+      printf("%d\t",TREE[i]);
+      for(j=N;j&gt;0;j--)
+      {
+          temp=TREE[1];
+          TREE[1]=TREE[j];
+          TREE[j]=temp;
+          p=0;
+          do
+          {                                              
+               c=2*p+2;
+               if((TREE[c][/c]&lt;TREE[c language="+1"][/c]) &amp;&amp; c&lt;j-1)
+               c++;
+               if(TREE[p]&lt;TREE[c][/c] &amp;&amp; c&lt;j)
+               {
+                    temp=TREE[p];
+                    TREE[p]=TREE[c][/c];
+                    TREE[c][/c]=temp;
+               }
+           p=c;
+           }
+           while(c&lt;(j+1));
+      }
+      printf("\n\n\n The sorted nos are..");
+      for(i=1;i&lt;=N;i++)                         
+      printf("%d\t",TREE[i]);
+      getch();
+}</pre></div>

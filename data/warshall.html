@@ -1,0 +1,53 @@
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include&lt;stdio.h&gt;
+#include&lt;conio.h&gt;
+#include&lt;math.h&gt;
+int max(int,int);
+
+void warshal(int p[10][10],int n)
+{
+	 int i,j,k;
+	 for(k=1;k&lt;=n;k++)
+	 for(i=1;i&lt;=n;i++)
+	 for(j=1;j&lt;=n;j++)
+	 p[i][j]=max(p[i][j],p[i][k]&amp;&amp;p[k][j]);
+}
+
+int max(int a,int b)
+{                                                       ;
+	if(a&gt;b)
+		return(a);
+	else
+		return(b);
+}
+
+void main()
+{
+	 int p[10][10]={0},n,e,u,v,i,j;
+	 clrscr();
+	 printf("\n Enter the number of vertices:");
+	 scanf("%d",&amp;n);
+	 printf("\n Enter the number of edges:");
+	 scanf("%d",&amp;e);
+	 for(i=1;i&lt;=e;i++)
+	 {
+		printf("\n Enter the end vertices of edge %d:",i);
+		scanf("%d%d",&amp;u,&amp;v);
+		p[u][v]=1;
+	 }
+	 printf("\n Matrix of input data: \n");
+	 for(i=1;i&lt;=n;i++)
+	 {
+		for(j=1;j&lt;=n;j++)
+		printf("%d\t",p[i][j]);
+		printf("\n");
+	 }
+	 warshal(p,n);
+	 printf("\n Transitive closure: \n");
+	 for(i=1;i&lt;=n;i++)
+	 {
+		for(j=1;j&lt;=n;j++)
+		printf("%d\t",p[i][j]);
+		printf("\n");
+	 }
+	 getch();
+}</pre></div>

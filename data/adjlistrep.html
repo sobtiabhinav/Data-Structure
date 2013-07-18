@@ -1,0 +1,52 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct graphnode
+{
+int name;
+struct graphnode *next;
+};
+
+void addNode(struct graphnode *G[],int startNode, int endNode)
+{
+	struct graphnode *tmp;
+	tmp-&gt;name=endNode;
+	tmp-&gt;next=G[startNode];
+	startNode=tmp;
+}
+
+void printGraph(struct graphnode *G[], int numofnodes)
+{
+	int i;
+	for(i=0;i&lt;numofnodes;i++)
+	{
+		struct graphnode *tmp;
+		tmp=G[i];
+		printf("%d",i);
+
+		while(tmp!=NULL)
+		{
+			printf("%d",tmp-&gt;name);
+			tmp=tmp-&gt;next;
+		}
+	}
+}
+
+int main(void)
+{	
+	int numofnodes;
+	printf("Enter the number of nodes: ");
+	scanf("%d",&amp;numofnodes);
+	struct graphnode *arrayOfVertices[numofnodes];
+	int i; 
+	for(i=0;i&lt;numofnodes;i++)
+	{
+		arrayOfVertices[i]-&gt;name=i;
+		arrayOfVertices[i]-&gt;next=NULL;
+	}
+	addNode(arrayOfVertices,0,1);
+	addNode(aarrayOfVertices,0,2);
+	printGraph(arrayOfVertices,numofnodes);
+	return 0;
+}</pre></div>

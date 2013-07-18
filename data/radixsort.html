@@ -1,0 +1,57 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+#define MAX 100
+#define SHOWPASS
+ 
+void print(int *a, int n) 
+{
+	 int i;
+	 for (i = 0; i &lt; n; i++)
+	  printf("%d\t", a[i]);
+}
+ 
+void radix_sort(int *a, int n)
+{
+	 int i, b[MAX], m = 0, exp = 1;
+	 for (i = 0; i &lt; n; i++) {
+	 if (a[i] &gt; m)
+		m = a[i];
+ }
+	while (m / exp &gt; 0)
+	{
+		int box[10] = { 0 };
+		for (i = 0; i &lt; n; i++)
+			box[a[i] / exp % 10]++;
+		for (i = 1; i &lt; 10; i++)
+			box[i] += box[i - 1];
+	  for (i = n - 1; i &gt;= 0; i--)
+			b[--box[a[i] / exp % 10]] = a[i];
+	  for (i = 0; i &lt; n; i++)
+			a[i] = b[i];
+			exp *= 10;
+	 
+#ifdef SHOWPASS
+	  printf("\n\nPASS   : ");
+	  print(a, n);
+#endif
+	}
+}
+ 
+int main() 
+{
+	 int arr[MAX];
+	 int i, num;
+	 
+	 printf("\nEnter total elements (num &lt; %d) : ", MAX);
+	 scanf("%d", &amp;num);
+	 printf("\nEnter %d Elements : ", num);
+	 for (i = 0; i &lt; num; i++)
+		scanf("%d", &amp;arr[i]);
+	 printf("\nARRAY  : ");
+	 print(&amp;arr[0], num);
+	 radix_sort(&amp;arr[0], num);
+	 printf("\n\nSORTED  : ");
+	 print(&amp;arr[0], num);
+	 
+	 return 0;
+}</pre></div>

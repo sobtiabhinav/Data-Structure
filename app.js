@@ -175,6 +175,56 @@ Ext.application({
             title: 'Stack Using Linked List',
             xtype: 'htmlPage',
             url: 'data/stackull.html'
+        },
+	{
+            title: 'Adjacency List Representation of Graph',
+            xtype: 'htmlPage',
+            url: 'data/adjlistrep.html'
+        },
+	{
+            title: 'Adjacency Matrix Representation of Graph',
+            xtype: 'htmlPage',
+            url: 'data/adjmatrixrep.html'
+        },
+	{
+            title: 'AVL',
+            xtype: 'htmlPage',
+            url: 'data/avl.html'
+        },
+	{
+            title: 'Dequeue',
+            xtype: 'htmlPage',
+            url: 'data/deque.html'
+        },
+	{
+            title: 'Heap Sort',
+            xtype: 'htmlPage',
+            url: 'data/heapsort.html'
+        },
+	{
+            title: 'Value of Polynomial',
+            xtype: 'htmlPage',
+            url: 'data/polynomial.html'
+        },
+	{
+            title: 'Radix Sort',
+            xtype: 'htmlPage',
+            url: 'data/radixsort.html'
+        },
+	{
+            title: 'Shell Sort',
+            xtype: 'htmlPage',
+            url: 'data/shellsort.html'
+        },
+	{
+            title: 'Sparse Matrix',
+            xtype: 'htmlPage',
+            url: 'data/sparse.html'
+        },
+	{
+            title: 'Warshall Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/warshall.html'
         }
     ],
 
