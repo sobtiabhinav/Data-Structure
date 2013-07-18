@@ -59,7 +59,7 @@ Ext.application({
 	{
             title: 'Singly Linked List',
             xtype: 'htmlPage',
-            url: 'data/singlyll.html'
+            url: 'data/singlyl.html'
         },
 	{
             title: 'Push and Pop Operations on Stack',
@@ -102,7 +102,7 @@ Ext.application({
             url: 'data/lcs.html'
         },
 	{
-            title: 'Merge Sort Comlexity',
+            title: 'Merge Sort',
             xtype: 'htmlPage',
             url: 'data/merge.html'
         },
@@ -140,11 +140,6 @@ Ext.application({
             title: 'Insertion Sort',
             xtype: 'htmlPage',
             url: 'data/insertionsort.html'
-        },
-	{
-            title: 'Merge Sort Using Array',
-            xtype: 'htmlPage',
-            url: 'data/mergearray.html'
         },
 	{
             title: 'Queue Using Linked List',
@@ -187,7 +182,7 @@ Ext.application({
             url: 'data/adjmatrixrep.html'
         },
 	{
-            title: 'AVL',
+            title: 'AVL Tree',
             xtype: 'htmlPage',
             url: 'data/avl.html'
         },

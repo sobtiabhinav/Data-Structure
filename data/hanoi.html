@@ -1,0 +1,22 @@
+
+<div style="text-align: left;"><pre id="code" class="plain-text" style="overflow: auto; padding: 10px; margin-top: 0px; margin-bottom: 0px; white-space: pre-wrap; font-size: 12px; word-wrap: break-word; font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace !important;">#include &lt;stdio.h&gt;
+
+main()
+{
+		char source = 'S', temp = 'T', dest = "D";
+		int ndisk;
+		printf("Enter the number of disks : ");
+		scanf("%d",&amp;ndisk);
+		printf("Sequence is : ");
+		toh (ndisk, source, temp, dest);
+}
+
+toh (int ndisk, char source, char temp, char dest)
+{
+		if (ndisk&gt;0)
+		{
+			toh (ndisk-1, source, dest, temp);
+			printf("Move disk %d %c --&gt; %c\n", ndisk, source, dest);
+			toh(ndisk-1, temp, source, dest);	
+		}
+}</pre></div>
