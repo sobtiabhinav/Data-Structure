@@ -27,34 +27,24 @@ Ext.application({
 
     aboutPages: [
         {
+            title: 'Linear and Binary Search',
+            xtype: 'htmlPage',
+            url: 'data/search.html'
+        },
+	{
             title: 'Operations on Arrays',
             xtype: 'htmlPage',
             url: 'data/array.html'
         },
 	{
-            title: 'Doubly Linked List',
-            xtype: 'htmlPage',
-            url: 'data/doublyll.html'
-        },
-        {
             title: 'Operations on Matrices',
             xtype: 'htmlPage',
             url: 'data/matrix.html'
         },
-        {
-            title: 'Nodes in a Tree',
-            xtype: 'htmlPage',
-            url: 'data/nodes.html'
-        },
 	{
-            title: 'Insertion and Deletion in a Queue',
+            title: 'Sparse Matrix',
             xtype: 'htmlPage',
-            url: 'data/queue.html'
-        },
-	{
-            title: 'Linear and Binary Search',
-            xtype: 'htmlPage',
-            url: 'data/search.html'
+            url: 'data/sparse.html'
         },
 	{
             title: 'Singly Linked List',
@@ -62,64 +52,9 @@ Ext.application({
             url: 'data/singlyl.html'
         },
 	{
-            title: 'Push and Pop Operations on Stack',
+            title: 'Doubly Linked List',
             xtype: 'htmlPage',
-            url: 'data/stack.html'
-        },
-	{
-            title: 'Activity Selector',
-            xtype: 'htmlPage',
-            url: 'data/act.html'
-        },
-	{
-            title: 'Breadth First Search',
-            xtype: 'htmlPage',
-            url: 'data/bfs.html'
-        },
-	{
-            title: 'Depth First Search',
-            xtype: 'htmlPage',
-            url: 'data/dfs.html'
-        },
-	{
-            title: 'Dijkstra Algorithm',
-            xtype: 'htmlPage',
-            url: 'data/dij.html'
-        },
-	{
-            title: 'Insertion Sort Complexity',
-            xtype: 'htmlPage',
-            url: 'data/insert.html'
-        },
-	{
-            title: 'Kruskal Algorithm',
-            xtype: 'htmlPage',
-            url: 'data/kruskal.html'
-        },
-	{
-            title: 'Longest Common Subsequence',
-            xtype: 'htmlPage',
-            url: 'data/lcs.html'
-        },
-	{
-            title: 'Merge Sort',
-            xtype: 'htmlPage',
-            url: 'data/merge.html'
-        },
-	{
-            title: 'Paranthesization Of Matrices',
-            xtype: 'htmlPage',
-            url: 'data/paran.html'
-        },
-	{
-            title: 'Prims Algorithm',
-            xtype: 'htmlPage',
-            url: 'data/prims.html'
-        },
-	{
-            title: 'Bubble Sort',
-            xtype: 'htmlPage',
-            url: 'data/bubble.html'
+            url: 'data/doublyll.html'
         },
 	{
             title: 'Circular Linked List',
@@ -127,19 +62,24 @@ Ext.application({
             url: 'data/circularll.html'
         },
 	{
-            title: 'Circular Queue Using Array',
+            title: 'Reverse a Linked List',
             xtype: 'htmlPage',
-            url: 'data/cirquarr.html'
+            url: 'data/revll.html'
         },
 	{
-            title: 'Binary Tree',
+            title: 'Operations on Stack',
             xtype: 'htmlPage',
-            url: 'data/binarytree.html'
+            url: 'data/stack.html'
         },
 	{
-            title: 'Insertion Sort',
+            title: 'Stack Using Linked List',
             xtype: 'htmlPage',
-            url: 'data/insertionsort.html'
+            url: 'data/stackull.html'
+        },
+	{
+            title: 'Insertion and Deletion in a Queue',
+            xtype: 'htmlPage',
+            url: 'data/queue.html'
         },
 	{
             title: 'Queue Using Linked List',
@@ -147,19 +87,29 @@ Ext.application({
             url: 'data/qullist.html'
         },
 	{
-            title: 'Quick Sort',
-            xtype: 'htmlPage',
-            url: 'data/quicksort.html'
-        },
-	{
-            title: 'Reverse a Linked List',
-            xtype: 'htmlPage',
-            url: 'data/revll.html'
-        },
-	{
             title: 'Reverse Elements in Queue',
             xtype: 'htmlPage',
             url: 'data/revqueue.html'
+        },
+	{
+            title: 'Circular Queue Using Array',
+            xtype: 'htmlPage',
+            url: 'data/cirquarr.html'
+        },
+	{
+            title: 'Dequeue',
+            xtype: 'htmlPage',
+            url: 'data/deque.html'
+        },
+	{
+            title: 'Bubble Sort',
+            xtype: 'htmlPage',
+            url: 'data/bubble.html'
+        },
+	{
+            title: 'Insertion Sort',
+            xtype: 'htmlPage',
+            url: 'data/insertionsort.html'
         },
 	{
             title: 'Selection Sort',
@@ -167,9 +117,70 @@ Ext.application({
             url: 'data/selection.html'
         },
 	{
-            title: 'Stack Using Linked List',
+            title: 'Quick Sort',
             xtype: 'htmlPage',
-            url: 'data/stackull.html'
+            url: 'data/quicksort.html'
+        },
+	{
+            title: 'Merge Sort',
+            xtype: 'htmlPage',
+            url: 'data/merge.html'
+        },
+	{
+            title: 'Heap Sort',
+            xtype: 'htmlPage',
+            url: 'data/heapsort.html'
+        },
+	{
+            title: 'Radix Sort',
+            xtype: 'htmlPage',
+            url: 'data/radixsort.html'
+        },
+	{
+            title: 'Shell Sort',
+            xtype: 'htmlPage',
+            url: 'data/shellsort.html'
+        },
+        {
+            title: 'Nodes in a Tree',
+            xtype: 'htmlPage',
+            url: 'data/nodes.html'
+        },
+	
+	{
+            title: 'Activity Selector',
+            xtype: 'htmlPage',
+            url: 'data/act.html'
+        },
+	{
+            title: 'Binary Tree',
+            xtype: 'htmlPage',
+            url: 'data/binarytree.html'
+        },
+	{
+            title: 'AVL Tree',
+            xtype: 'htmlPage',
+            url: 'data/avl.html'
+        },
+	{
+            title: 'Prims Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/prims.html'
+        },
+	{
+            title: 'Kruskal Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/kruskal.html'
+        },
+	{
+            title: 'Warshall Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/warshall.html'
+        },
+	{
+            title: 'Dijkstra Algorithm',
+            xtype: 'htmlPage',
+            url: 'data/dij.html'
         },
 	{
             title: 'Adjacency List Representation of Graph',
@@ -182,19 +193,24 @@ Ext.application({
             url: 'data/adjmatrixrep.html'
         },
 	{
-            title: 'AVL Tree',
+            title: 'Breadth First Search',
             xtype: 'htmlPage',
-            url: 'data/avl.html'
+            url: 'data/bfs.html'
         },
 	{
-            title: 'Dequeue',
+            title: 'Depth First Search',
             xtype: 'htmlPage',
-            url: 'data/deque.html'
+            url: 'data/dfs.html'
         },
 	{
-            title: 'Heap Sort',
+            title: 'Longest Common Subsequence',
             xtype: 'htmlPage',
-            url: 'data/heapsort.html'
+            url: 'data/lcs.html'
+        },
+	{
+            title: 'Paranthesization Of Matrices',
+            xtype: 'htmlPage',
+            url: 'data/paran.html'
         },
 	{
             title: 'Value of Polynomial',
@@ -202,24 +218,9 @@ Ext.application({
             url: 'data/polynomial.html'
         },
 	{
-            title: 'Radix Sort',
+            title: 'Tower Of Hanoi',
             xtype: 'htmlPage',
-            url: 'data/radixsort.html'
-        },
-	{
-            title: 'Shell Sort',
-            xtype: 'htmlPage',
-            url: 'data/shellsort.html'
-        },
-	{
-            title: 'Sparse Matrix',
-            xtype: 'htmlPage',
-            url: 'data/sparse.html'
-        },
-	{
-            title: 'Warshall Algorithm',
-            xtype: 'htmlPage',
-            url: 'data/warshall.html'
+            url: 'data/hanoi.html'
         }
     ],
 
