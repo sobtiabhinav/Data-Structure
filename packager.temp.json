@@ -12,8 +12,8 @@
     "114": "resources/icons/Icon@2x.png",
     "144": "resources/icons/Icon~ipad@2x.png"
   },
-  "inputPath": "/var/www/DS/pkg/native/package",
-  "outputPath": "/var/www/DS/pkg/native/native",
+  "inputPath": "/var/www/DS/build/DS/package",
+  "outputPath": "/var/www/DS/build/DS/native",
   "configuration": "Debug",
   "platform": "iOSSimulator",
   "deviceType": "Universal",
@@ -27,11 +27,7 @@
   "permissions": [
     "INTERNET",
     "ACCESS_NETWORK_STATE",
-    "CAMERA",
-    "VIBRATE",
-    "ACCESS_FINE_LOCATION",
-    "ACCESS_COARSE_LOCATION",
-    "CALL_PHONE"
+    "VIBRATE"
   ],
   "orientations": [
     "portrait",
