@@ -1,35 +1,10 @@
 // The following two lines import the default Sencha Touch theme. If you are building
 // a new theme, remove them and the add your own CSS on top of the base CSS (which
 // is already included in your app.json file).
-@import 'sencha-touch/default';
+
 @import 'sencha-touch/default/all';
 
 // Custom code goes here..
 
 // Examples of using the icon mixin:
 // @include icon('user');
-@import 'Class';
-@import 'Button';
-@import 'Panel';
-@import 'Sheet';
-@import 'MessageBox';
-@import 'Toolbar';
-//@import 'carousel/Carousel';
-@import 'form/Panel';
-@import 'form/FieldSet';
-@import 'field/Field';
-@import 'field/Checkbox';
-@import 'field/Radio';
-//@import 'field/Search';
-@import 'field/Select';
-//@import 'field/Slider';
-//@import 'field/Spinner';
-@import 'field/TextArea';
-@import 'dataview/IndexBar';
-@import 'dataview/List';
-//@import 'picker/Picker';
-@import 'plugin/ListPaging';
-//@import 'plugin/PullRefresh';
-//@import 'slider/Slider';
-@import 'slider/Toggle';
-@import 'tab/Panel';
