@@ -3,20 +3,20 @@
 
 main()
 {
-		char source = 'S', temp = 'T', dest = "D";
-		int ndisk;
-		printf("Enter the number of disks : ");
-		scanf("%d",&amp;ndisk);
-		printf("Sequence is : ");
-		toh (ndisk, source, temp, dest);
+	char source = 'S', temp = 'T', dest = "D";
+	int ndisk;
+	printf("Enter the number of disks : ");
+	scanf("%d",&amp;ndisk);
+	printf("Sequence is : ");
+	toh (ndisk, source, temp, dest);
 }
 
 toh (int ndisk, char source, char temp, char dest)
 {
-		if (ndisk&gt;0)
-		{
-			toh (ndisk-1, source, dest, temp);
-			printf("Move disk %d %c --&gt; %c\n", ndisk, source, dest);
-			toh(ndisk-1, temp, source, dest);	
-		}
+	if (ndisk&gt;0)
+	{
+		toh (ndisk-1, source, dest, temp);
+		printf("Move disk %d %c --&gt; %c\n", ndisk, source, dest);
+		toh(ndisk-1, temp, source, dest);	
+	}
 }</pre></div>

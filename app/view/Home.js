@@ -12,7 +12,7 @@ Ext.define('DS.view.Home', {
 		html: [
 			'<br /><img height=200 src="resources/icons/logo.png" />',
 			'<h1></h1>',
-			"<br /><p>Contains over 40 among the most widely used Data Structure programs in C <br /></p>",
+			"<br /><p>Contains over 40 most used Data Structure programs in C <br /></p>",
 			"<p> The application finds its use mostly during your practicals (If you know what we mean :P)</p>",
 			"<p>You may request programs at <a>app@inkmagik.com</a>.</p>",
 			"<p>Don't forget to rate us if you like the app!</p>",
