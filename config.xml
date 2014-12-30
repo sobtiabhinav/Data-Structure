@@ -2,9 +2,9 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
 
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.phonegap.example"
-        version     = "1.0.0"
-        versionCode = "10" >
+        id          = "com.inkmagik.ds"
+        version     = "1.0.5"
+        versionCode = "80" >
 
         <!-- versionCode is optional and Android only -->
 
