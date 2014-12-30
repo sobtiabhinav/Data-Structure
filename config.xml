@@ -19,5 +19,6 @@
         <author href="http://inkmagik.com" email="app@inkmagik.com">
         InkMagik
         </author>
-
+        
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
     </widget>
